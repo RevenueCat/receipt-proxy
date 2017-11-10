@@ -11,4 +11,4 @@ var server = http.createServer(function(req, res) {
   proxy.web(req, res, { target: target, ignorePath: true });
 });
 
-server.listen(5050);
+server.listen(process.env.PORT);
