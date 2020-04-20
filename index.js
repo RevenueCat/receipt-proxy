@@ -8,7 +8,7 @@ var proxy = httpProxy.createProxyServer({
 var server = http.createServer(function(req, res) {
   var target = (req.url !== "/sandbox") ? "https://buy.itunes.apple.com/verifyReceipt" 
                                         : "https://sandbox.itunes.apple.com/verifyReceipt";
-  proxy.web(req, res, { target: target, ignorePath: true });
+  proxy.web(req, res, { target: target, ignorePath: true, changeOrigin: true });
 
   res.setHeader('Access-Control-Allow-Origin', 'https://www.revenuecat.com');
   res.setHeader('Access-Control-Request-Method', '*');
